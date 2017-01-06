@@ -26,6 +26,17 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # config/environments/production.rb
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+    bucket: ENV.fetch('thxnoted'),
+    access_key_id: ENV.fetch('AKIAIWG2CZ6TCBF7DJVA'),
+    secret_access_key: ENV.fetch('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'),
+    s3_region: ENV.fetch('OREGON'),
+  }
+}
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
